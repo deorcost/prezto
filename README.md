@@ -8,19 +8,20 @@ and prompt themes.
 Fork Notes
 ----------
 
-Additional README section added to my fork to keep track of installation,
+Additional `README` section added to my fork to keep track of installation,
 content, and upkeep instruction. Original (upstream) content begins below this
 section.
 
-This is a fork of the original (user: `sorin-ionescu`) prezto. The fork enables
+This is a fork of the original (*user*: `sorin-ionescu`) prezto. The fork enables
 me to maintain my own configuration files and pull my setup to multiple
 machines.
 
 
 ### Setting up the repository ###
 
-The instructions are similar to the upstream repository instructions seen in
-the next section, except for the difference in repository location.
+The instructions are similar to the original (upstream) repository instructions
+seen in the next section, except for the difference in repository location and
+the addition of the upstream repository as a separate remote.
 
   1. Clone the repository (note the user is `deorcost`)
 
@@ -44,7 +45,8 @@ the next section, except for the difference in repository location.
     cd ~/.zprezto
     ```
 
- 4. Add the upstream repository as a remote
+ 4. Add the upstream repository as a remote. Step is required allow me to sync
+    (fetch changes) from the upstream repository.
 
     ```console
     git remote add upstream https://github.com/sorin-ionescu/prezto.git 
@@ -56,10 +58,8 @@ the next section, except for the difference in repository location.
     git remote -v
     ```
 
-Now my fork can be synced with the upstream repository.
 
-
-### Integrating Upstream Changes with my Fork###
+### Integrating Upstream Changes with my Fork ###
 
 Keep my work up to date with the upstream repository. Instructions assume that
 you are within the working (`.zprezto`) directory.
