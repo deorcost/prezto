@@ -10,4 +10,147 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+
+
 # Customize to your needs...
+#
+# PARAMETERS
+# ---------
+
+# See .zprofile for PATH additions.
+#
+# PYTHONPATH should not be set. Modify ipython startup files instead (e.g.
+# ~/.ipython/profile_default/startup/00-startup.py)
+
+# Don't add certain commands to history
+HISTORY_IGNORE="(ls|ll|l|cd|pwd|exit|cd ..)"
+
+
+# SETOPTS
+# -------
+
+# Certain setopt values are set in prezto modules and don't need to be set here.
+
+setopt AUTO_CD              # Allows 'dir' instead of 'cd dir'
+setopt MULTIOS              # Pipe to multiple outputs
+setopt AUTO_NAME_DIRS       # Allow for named dirs that can replace paths
+
+setopt GLOB_COMPLETE        # Do not insert all expansion possibilities. Cycle
+                            # through them like MENU_COMPLETE.
+
+setopt AUTO_PUSHD           # CD = PUSHD
+setopt PUSHD_MINUS          # Interchange +/- when used to specify a number on the stack
+setopt PUSHD_TO_HOME        # Blank pushd goes to home
+setopt PUSHD_IGNORE_DUPS    # Ignore multiple dirs on stack
+setopt PUSHD_SILENT         # No PUSHD error messages
+
+setopt RM_STAR_WAIT         # 10 sec wait for 'rm *' !!!
+setopt IGNORE_EOF           # Do not exit on end-of-file
+
+
+
+# KEYBINDINGS
+# --------
+
+# Common keybindings unset in python
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^K' kill-line
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^_' undo
+
+# Incremental search using "/" and "?"
+#bindkey -M vicmd "/" history-incremental-search-backward
+#bindkey -M vicmd "?" history-incremental-search-forward
+
+
+# MITRE
+# -----
+ 
+#export http_proxy=http://gatekeeper-w.mitre.org:80/
+#export https_proxy=http://gatekeeper-w.mitre.org:80/
+#export no_proxy=localhost,127.0.0.1,.mitre.org
+#export HTTP_PROXY=$http_proxy
+#export HTTPS_PROXY=$https_proxy
+#export NO_PROXY=$no_proxy
+
+# ALIASES
+# -------
+
+# Command aliases (e.g. 'ls = ls -GpF')
+# 'zprofile' sets a few defaults for 'ls' commands
+#   -C: Mult-column output (default for terminals; therefore not included)
+#   -G: colorized output
+#   -F: slash after dir, asterisk after an exutible, etc.
+#   -l: long format
+#   -h: unit suffixes for file sizes, i.e. human readible format
+alias ls='ls -GF'
+alias l='ls -GF'
+alias ll='ls -GFlh'
+
+# Directory aliases (e.g. 'cd docs = cd ~/Documents/')
+# NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
+hash -d docs=~/Documents/
+hash -d proj=~/Documents/Projects/
+# Projects
+hash -d git=~/Documents/Git\ Projects/
+hash -d sentinel=~/Documents/Projects/Sentinel\ MSR\ \(2012-03\)/
+hash -d bep=~/Documents/Projects/BEP\ \(2016-10\)/
+hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
+hash -d jcrew=~/Documents/Projects/JCREW\ \(2017-04\)/
+
+
+# Misc. aliases
+# Executable script 'mvim' launches application MacVim. It must be installed
+# for the below aliases to work. (expected directory: '/usr/local/bin').
+# Instruction are included as part of the standard MacVim download.
+alias vim='mvim'
+alias gvim='mvim'
+
+alias brun='brew services run'
+alias bstart='brew services start'
+alias bstop='brew services stop'
+alias bstatus='brew services list'
+
+
+# FUNCTIONS
+# ---------
+
+# ZSH modifiers are used
+#   - t: pathname tail, i.e. basename
+#   - r: remove filename extension
+#   - e: the suffix (file extension)
+
+# Pandoc options
+#   - s / --standalone  :   Produce output with an appropriate header and footer.
+#   - S / --smart       :   Use smart quotes 
+ 
+# Convert a Markdown (*.md) file to a Microsoft Word (*.docx) file using pandoc
+function md2docx {
+    if test ${1:e}=="md"; then
+        echo "Executing: 'pandoc -s -S ${1:t} -o ${1:t:r}.docx'"
+        pandoc -s -S ${1} -o ${1:r}.docx
+    else
+        echo "FAILURE: Markdown file with extension *.md required"
+    fi
+}
+
+# Convert a Markdown (*.md) file to an HTML file using pandoc. Use a CSS style
+# sheet.
+function md2html {
+    if test ${1:e}=="md"; then
+        echo "Executing: 'pandoc -s -S ${1:t} -o ${1:t:r}.html'"
+        pandoc -s -S --highlight-style haddock --latexmathml \
+            -c "~/.css/pandoc/buttondown.css" ${1} -o ${1:r}.html
+    else
+        echo "FAILURE: Markdown file with extension *.md required"
+    fi
+}
+
+function p3update {
+    echo "Updating Python 3x packages"
+    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    echo "Process complete"
+}
+# 

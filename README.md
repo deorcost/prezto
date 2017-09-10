@@ -5,6 +5,98 @@ Prezto is the configuration framework for [Zsh][1]; it enriches the command line
 interface environment with sane defaults, aliases, functions, auto completion,
 and prompt themes.
 
+Fork Notes
+----------
+
+Additional README section added to my fork to keep track of installation,
+content, and upkeep instruction. Original (upstream) content begins below this
+section.
+
+This is a fork of the original (user: `sorin-ionescu`) prezto. The fork enables
+me to maintain my own configuration files and pull my setup to multiple
+machines.
+
+
+### Setting up the repository ###
+
+The instructions are similar to the upstream repository instructions seen in
+the next section, except for the difference in repository location.
+
+  1. Clone the repository (note the user is `deorcost`)
+
+     ```console
+     git clone --recursive https://github.com/deorcost/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+     ```
+
+ 2. Create a new Zsh configuration by copying the Zsh configuration files
+    provided (identical to upstream instructions):
+
+    ```sh
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+    ```
+
+ 3. Change change current working directory to the `prezto` repository:
+
+    ```console
+    cd ~/.zprezto
+    ```
+
+ 4. Add the upstream repository as a remote
+
+    ```console
+    git remote add upstream https://github.com/sorin-ionescu/prezto.git 
+    ```
+
+ 5. Verify the upstream directory was added
+
+    ```console
+    git remote -v
+    ```
+
+Now my fork can be synced with the upstream repository.
+
+
+### Integrating Upstream Changes with my Fork###
+
+Keep my work up to date with the upstream repository. Instructions assume that
+you are within the working (`.zprezto`) directory.
+
+ 1. Commit any local changes, e.g.
+
+    ```console
+    git add .
+    git commit -m "Some message"
+    ```
+
+ 2. Fetch the branches and their respective commits from the upstream
+    repository. Commits to master will be stored in a local branch,
+    `upstream/master`.
+
+    ```console
+    git fetch upstream
+    ```
+
+ 3. Check out your fork's local `master` branch
+
+    ```console
+    git checkout master
+    ```
+
+ 4. Merge the changes from upstream/master into your local master branch. This
+    brings your fork's master branch into sync with the upstream repository,
+    without losing your local changes.
+
+    ```console
+    git merge upstream/master
+    ```
+
+Syncing only updates my local copy of my repository. To update my fork, I need
+to push my changes.
+
+
 Installation
 ------------
 
