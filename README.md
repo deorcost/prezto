@@ -79,7 +79,8 @@ you are within the working (`.zprezto`) directory.
     git fetch upstream
     ```
 
- 3. Check out your fork's local `master` branch
+ 3. Check out your fork's local `master` branch (if working outside the master
+    branch; usually this command isn't necessary):
 
     ```console
     git checkout master
