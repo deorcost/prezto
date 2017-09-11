@@ -23,7 +23,7 @@ fi
 # ~/.ipython/profile_default/startup/00-startup.py)
 
 # Don't add certain commands to history
-HISTORY_IGNORE="(ls|ll|l|cd|pwd|exit|cd ..)"
+HISTORY_IGNORE="(ls|ls -a|ll|ll -a|l|l -a|pwd|exit|clear|cd|cd ..|cd ../..)"
 
 
 # SETOPTS
@@ -65,8 +65,8 @@ bindkey '^_' undo
 #bindkey -M vicmd "?" history-incremental-search-forward
 
 
-# MITRE
-# -----
+# MITRE PROXY
+# -----------
 
 if [ "$HOST" = MM212860-PC ]; then
     export http_proxy=http://gatekeeper-w.mitre.org:80/
@@ -76,6 +76,7 @@ if [ "$HOST" = MM212860-PC ]; then
     export HTTPS_PROXY=$https_proxy
     export NO_PROXY=$no_proxy
 fi
+
 
 # ALIASES
 # -------
@@ -94,13 +95,15 @@ alias ll='ls -GFlh'
 # Directory aliases (e.g. 'cd docs = cd ~/Documents/')
 # NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
 hash -d docs=~/Documents/
-hash -d proj=~/Documents/Projects/
-# Projects
-hash -d git=~/Documents/Git\ Projects/
-hash -d sentinel=~/Documents/Projects/Sentinel\ MSR\ \(2012-03\)/
-hash -d bep=~/Documents/Projects/BEP\ \(2016-10\)/
-hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
-hash -d jcrew=~/Documents/Projects/JCREW\ \(2017-04\)/
+if [ "$HOST" = MM212860-PC ]; then
+    hash -d proj=~/Documents/Projects/
+    # Projects
+    hash -d git=~/Documents/Git\ Projects/
+    hash -d sentinel=~/Documents/Projects/Sentinel\ MSR\ \(2012-03\)/
+    hash -d bep=~/Documents/Projects/BEP\ \(2016-10\)/
+    hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
+    hash -d jcrew=~/Documents/Projects/JCREW\ \(2017-04\)/
+fi
 
 
 # Misc. aliases
