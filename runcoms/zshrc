@@ -149,9 +149,12 @@ function md2docx {
 
 # Convert a Markdown (*.md) file to an HTML file using pandoc. Use a CSS style
 # sheet.
+#
+# Flags
+#   -s: Standalone document with a proper header and footer.
 function md2html {
     if test ${1:e}=="md"; then
-        echo "Executing: 'pandoc -s -S ${1:t} -o ${1:t:r}.html'"
+        echo "Executing: 'pandoc ${1:t} -o ${1:t:r}.html'"
         pandoc -s -S --highlight-style haddock --latexmathml \
             -c "~/.css/pandoc/buttondown.css" ${1} -o ${1:r}.html
     else
