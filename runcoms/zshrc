@@ -107,8 +107,8 @@ fi
 
 # Mac Desktop
 if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
-    hash -d grav=~/Documents/Creativity/Website/MDDHosting/ws-seanmmcdaniel-grav/
-    hash -d deorcost=~/Documents/Creativity/Tabletop\ Gaming/Deorst/
+    hash -d grav=~/Documents/Creativity/Website/MDDHosting/ws-seanmmcdaniel-grav/pages/
+    hash -d deorcost=~/Documents/Creativity/Tabletop\ Gaming/Deorcost/deorcost-rpg/
 fi
 
 
