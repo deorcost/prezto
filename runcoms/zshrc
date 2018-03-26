@@ -151,12 +151,13 @@ function md2docx {
 # sheet.
 #
 # Flags
-#   -s: Standalone document with a proper header and footer.
+#   -s: Standalone document with a proper header and footer. Required for
+#           proper HTML rendering.
+#   --css "path/to/stylesheet.css": Reference style sheet
 function md2html {
     if test ${1:e}=="md"; then
         echo "Executing: 'pandoc ${1:t} -o ${1:t:r}.html'"
-        pandoc -s -S --highlight-style haddock --latexmathml \
-            -c "~/.css/pandoc/buttondown.css" ${1} -o ${1:r}.html
+        pandoc -s --katex --css ~/.css/pandoc.css -o ${1:r}.html ${1} 
     else
         echo "FAILURE: Markdown file with extension *.md required"
     fi
