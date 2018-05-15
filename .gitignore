@@ -1,4 +1,14 @@
+# ZPrezto Specific
 *.zwc
 *.zwc.old
 modules/*/cache.zsh
 contrib
+
+# General (DSStore, thumbnails)
+*.DS_Store
+._#
+
+# Vim (temporary and swap files)
+*~
+*.swp
+*.swo
