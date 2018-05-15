@@ -62,7 +62,8 @@ the addition of the upstream repository as a separate remote.
 ### Integrating Upstream Changes with my Fork ###
 
 Keep my work up to date with the upstream repository. Instructions assume that
-you are within the working (`.zprezto`) directory.
+you are within the working (`.zprezto`) directory and are in the local master
+branch.
 
  1. Commit any local changes, e.g.
 
@@ -79,14 +80,7 @@ you are within the working (`.zprezto`) directory.
     git fetch upstream
     ```
 
- 3. Check out your fork's local `master` branch (if working outside the master
-    branch; usually this command isn't necessary):
-
-    ```console
-    git checkout master
-    ```
-
- 4. Merge the changes from upstream/master into your local master branch. This
+ 3. Merge the changes from upstream/master into your local master branch. This
     brings your fork's master branch into sync with the upstream repository,
     without losing your local changes.
 
@@ -94,8 +88,11 @@ you are within the working (`.zprezto`) directory.
     git merge upstream/master
     ```
 
-Syncing only updates my local copy of my repository. To update my fork, I need
-to push my changes.
+4.  Push changes to your upstream repository (origin)
+
+    ```console
+    git push
+    ```
 
 
 Installation
