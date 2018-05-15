@@ -1,9 +1,12 @@
 #
 # Executes commands at the start of an interactive session.
 #
-# Authors:
+# Original authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+# Modified by:
+#   Sean McDaniel <sean.m.mcdaniel@gmail.com>
+
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -11,9 +14,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 
-
-# Customize to your needs...
-#
 # PARAMETERS
 # ---------
 
@@ -97,12 +97,16 @@ alias ll='ls -GFlh'
 hash -d docs=~/Documents/
 if [[ "$HOST" = MM212860-PC ]]; then
     hash -d proj=~/Documents/Projects/
-    # Projects
+
+    # Git 
+    hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
+    hash -d pya=~/Documents/Git\ Projects/git-personal/py-analysis-sm/
+    hash -d deorcost=~/Documents/Personal/deorcost-rpg/
+    hash -d grav=~/Documents/Personal/ws-seanmmcdaniel-grav/
+
+    # Work Projects
     hash -d git=~/Documents/Git\ Projects/
-    hash -d sentinel=~/Documents/Projects/Sentinel\ MSR\ \(2012-03\)/
-    hash -d bep=~/Documents/Projects/BEP\ \(2016-10\)/
     hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
-    hash -d jcrew=~/Documents/Projects/JCREW\ \(2017-04\)/
 fi
 
 # Mac Desktop
@@ -125,6 +129,7 @@ alias bstop='brew services stop'
 alias bstatus='brew services list'
 
 
+
 # FUNCTIONS
 # ---------
 
@@ -133,15 +138,16 @@ alias bstatus='brew services list'
 #   - r: remove filename extension
 #   - e: the suffix (file extension)
 
-# Pandoc options
-#   - s / --standalone  :   Produce output with an appropriate header and footer.
-#   - S / --smart       :   Use smart quotes 
- 
+
 # Convert a Markdown (*.md) file to a Microsoft Word (*.docx) file using pandoc
+
+# Pandoc flags:
+#   - s / --standalone  :   Produce output with an appropriate header and footer.
+ 
 function md2docx {
     if test ${1:e}=="md"; then
-        echo "Executing: 'pandoc -s -S ${1:t} -o ${1:t:r}.docx'"
-        pandoc -s -S ${1} -o ${1:r}.docx
+        echo "Executing: 'pandoc -s ${1:t} -o ${1:t:r}.docx'"
+        pandoc -s ${1} -o ${1:r}.docx
     else
         echo "FAILURE: Markdown file with extension *.md required"
     fi
@@ -150,10 +156,11 @@ function md2docx {
 # Convert a Markdown (*.md) file to an HTML file using pandoc. Use a CSS style
 # sheet.
 #
-# Flags
+# Pandoc flags:
 #   -s: Standalone document with a proper header and footer. Required for
 #           proper HTML rendering.
 #   --css "path/to/stylesheet.css": Reference style sheet
+#   --katex: Math typesetting (see https://github.com/Khan/KaTeX)
 function md2html {
     if test ${1:e}=="md"; then
         echo "Executing: 'pandoc ${1:t} -o ${1:t:r}.html'"
@@ -163,9 +170,10 @@ function md2html {
     fi
 }
 
+# Update all homebrew (/usr/local) python packages
 function p3update {
     echo "Updating Python 3x packages"
-    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    pip3 freeze - local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
     echo "Process complete"
 }
-# 
+
