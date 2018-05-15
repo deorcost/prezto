@@ -96,6 +96,7 @@ alias ll='ls -GFlh'
 # NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
 hash -d docs=~/Documents/
 if [[ "$HOST" = MM212860-PC ]]; then
+
     hash -d proj=~/Documents/Projects/
 
     # Git 
@@ -107,6 +108,11 @@ if [[ "$HOST" = MM212860-PC ]]; then
     # Work Projects
     hash -d git=~/Documents/Git\ Projects/
     hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
+    hash -d optics=~/Documents/Projects/Optics\ \(2017-12\)/
+    hash -d polar=~/Documents/Projects/Polarization\ \(2018-05\)/
+    hash -d hydrate=~/Documents/Projects/Hydration\ \(2018-05\)/
+    
+
 fi
 
 # Mac Desktop
