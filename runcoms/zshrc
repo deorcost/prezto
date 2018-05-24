@@ -82,6 +82,7 @@ fi
 # -------
 
 # Command aliases (e.g. 'ls = ls -GpF')
+
 # 'zprofile' sets a few defaults for 'ls' commands
 #   -C: Mult-column output (default for terminals; therefore not included)
 #   -G: colorized output
@@ -92,7 +93,9 @@ alias ls='ls -GF'
 alias l='ls -GF'
 alias ll='ls -GFlh'
 
+
 # Directory aliases (e.g. 'cd docs = cd ~/Documents/')
+ 
 # NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
 hash -d docs=~/Documents/
 if [[ "$HOST" = MM212860-PC ]]; then
@@ -111,7 +114,6 @@ if [[ "$HOST" = MM212860-PC ]]; then
     hash -d optics=~/Documents/Projects/Optics\ \(2017-12\)/
     hash -d polar=~/Documents/Projects/Polarization\ \(2018-05\)/
     hash -d hydrate=~/Documents/Projects/Hydration\ \(2018-05\)/
-    
 
 fi
 
@@ -122,7 +124,28 @@ if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
 fi
 
 
+# Git aliases
+
+# Aliases provided by the prezto git module have been disabled (see
+# ~/.zpreztorc). A narrow selection of them have been manually included below
+# (trying to prevent command pollution). See ~/.zprezto/modules/git/alias.zsh
+# for reference. Will add more as necessary.
+
+alias gia='git add'                 # git index add
+
+alias gcm='git commit --message'    # git commit message
+
+alias gp='git push'
+alias gfm='git pull'                # Pull = fetch + merge
+alias gf='git fetch'
+
+alias gwd='git diff'                # git working-directory diff
+# git working-directory status
+alias gws='git status --ignore-submodules=${_git_status_ignore_submodules}' 
+
+
 # Misc. aliases
+ 
 # Executable script 'mvim' launches application MacVim. It must be installed
 # for the below aliases to work. (expected directory: '/usr/local/bin').
 # Instruction are included as part of the standard MacVim download.
