@@ -102,11 +102,13 @@ if [[ "$HOST" = MM212860-PC ]]; then
 
     hash -d proj=~/Documents/Projects/
 
-    # Git 
+    # Personal
     hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
-    hash -d pya=~/Documents/Git\ Projects/git-personal/py-analysis-sm/
     hash -d deorcost=~/Documents/Personal/deorcost-rpg/
     hash -d grav=~/Documents/Personal/ws-seanmmcdaniel-grav/
+
+    # Work General
+    hash -d pya=~/Documents/Git\ Projects/git-personal/py-analysis-sm/
 
     # Work Projects
     hash -d git=~/Documents/Git\ Projects/
@@ -119,8 +121,9 @@ fi
 
 # Mac Desktop
 if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
-    hash -d grav=~/Documents/Creativity/Website/MDDHosting/ws-seanmmcdaniel-grav/pages/
-    hash -d deorcost=~/Documents/Creativity/Tabletop\ Gaming/Deorcost/deorcost-rpg/
+    hash -d notes=~/Documents/github-repos/personal/notes/
+    hash -d grav=~/Documents/github-repos/personal/ws-seanmmcdaniel-grav/pages/
+    hash -d deorcost=~/Documents/github-repos/personal/deorcost-rpg/
 fi
 
 
