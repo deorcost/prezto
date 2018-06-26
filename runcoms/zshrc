@@ -14,7 +14,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 
-# PARAMETERS
+# VARIABLES
 # ---------
 
 # See .zprofile for PATH additions.
@@ -24,6 +24,9 @@ fi
 
 # Don't add certain commands to history
 HISTORY_IGNORE="(ls|ls -a|ll|ll -a|l|l -a|pwd|exit|clear|cd|cd ..|cd ../..)"
+
+# Point 'mvim' to the current Homebrew vim
+# export VIM_APP_DIR="usr/local/Cellar/macvim/HEAD-ed3fd67/" 
 
 
 # SETOPTS
@@ -152,7 +155,7 @@ alias gws='git status --ignore-submodules=${_git_status_ignore_submodules}'
 # Executable script 'mvim' launches application MacVim. It must be installed
 # for the below aliases to work. (expected directory: '/usr/local/bin').
 # Instruction are included as part of the standard MacVim download.
-alias vim='mvim'
+# alias vim='mvim'
 alias gvim='mvim'
 
 alias brun='brew services run'
