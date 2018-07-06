@@ -71,7 +71,7 @@ bindkey '^_' undo
 # MITRE PROXY
 # -----------
 
-if [ "$HOST" = MM212860-PC ]; then
+if [ "$HOST" =  mm241584-PC ]; then
     export http_proxy=http://gatekeeper-w.mitre.org:80/
     export https_proxy=http://gatekeeper-w.mitre.org:80/
     export no_proxy=localhost,127.0.0.1,.mitre.org
@@ -79,7 +79,6 @@ if [ "$HOST" = MM212860-PC ]; then
     export HTTPS_PROXY=$https_proxy
     export NO_PROXY=$no_proxy
 fi
-
 
 # ALIASES
 # -------
@@ -101,7 +100,7 @@ alias ll='ls -GFlh'
  
 # NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
 hash -d docs=~/Documents/
-if [[ "$HOST" = MM212860-PC ]]; then
+if [[ "$HOST" = mm241584-PC ]]; then
 
     hash -d proj=~/Documents/Projects/
 
