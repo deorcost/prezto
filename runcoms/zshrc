@@ -102,22 +102,22 @@ alias ll='ls -GFlh'
 hash -d docs=~/Documents/
 if [[ "$HOST" = mm241584-PC ]]; then
 
-    hash -d proj=~/Documents/Projects/
-
     # Personal
     hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
     hash -d deorcost=~/Documents/Personal/deorcost-rpg/
     hash -d grav=~/Documents/Personal/ws-seanmmcdaniel-grav/
 
-    # Work General
+    # Git
+    hash -d git=~/Documents/Git\ Projects/
     hash -d pya=~/Documents/Git\ Projects/git-personal/py-analysis-sm/
 
-    # Work Projects
-    hash -d git=~/Documents/Git\ Projects/
-    hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
-    hash -d optics=~/Documents/Projects/Optics\ \(2017-12\)/
+    # Projects
+    hash -d proj=~/Documents/Projects/
+    hash -d dtra=~/Documents/Projects/DTRA\ \(2017-07\)/
+    hash -d hen=~/Documents/Projects/AMON-HEN\ \(2017-12\)/
     hash -d polar=~/Documents/Projects/Polarization\ \(2018-05\)/
-    hash -d hydrate=~/Documents/Projects/Hydration\ \(2018-05\)/
+    hash -d vta=~/Documents/Projects/HSARPA\ \(2018-05\)/
+    hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
 
 fi
 
