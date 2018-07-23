@@ -195,13 +195,17 @@ function md2docx {
 #           proper HTML rendering.
 #   --css "path/to/stylesheet.css": Reference style sheet
 #   --katex: Math typesetting (see https://github.com/Khan/KaTeX)
+
+# Function 1: simple conversion with style sheet and table of contents
 function md2html {
-    if test ${1:e}=="md"; then
-        echo "Executing: 'pandoc ${1:t} -o ${1:t:r}.html'"
-        pandoc -s --katex --css ~/.css/pandoc.css -o ${1:r}.html ${1} 
-    else
-        echo "FAILURE: Markdown file with extension *.md required"
-    fi
+    echo "Pandoc: Creating '${1:t:r}.html' from '${1:t}'"
+    pandoc -s --toc --katex --css ~/.css/pandoc.css -o ${1:r}.html ${1} 
+}
+
+# Function 2: conversion (as above) + place file in html directory
+function md2html2 {
+    echo "Pandoc: Creating 'html/${1:t:r}.html' from '${1:t}'"
+    pandoc -s --toc --katex --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
 }
 
 # Update all homebrew (/usr/local) python packages
