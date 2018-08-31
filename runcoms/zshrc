@@ -126,6 +126,7 @@ if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
     hash -d notes=~/Documents/github-repos/personal/notes/
     hash -d grav=~/Documents/github-repos/personal/ws-seanmmcdaniel-grav/pages/
     hash -d deorcost=~/Documents/github-repos/personal/deorcost-rpg/
+    hash -d metrics=~/Documents/github-repos/personal/metrics/
 fi
 
 
