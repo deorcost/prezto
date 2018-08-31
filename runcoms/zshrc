@@ -102,16 +102,18 @@ alias ll='ls -GFlh'
 hash -d docs=~/Documents/
 if [[ "$HOST" = mm241584-PC ]]; then
 
-    # Personal
+    # Git Personal
     hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
-    hash -d deorcost=~/Documents/Personal/deorcost-rpg/
-    hash -d grav=~/Documents/Personal/ws-seanmmcdaniel-grav/
+    hash -d deorcost=~/Documents/Git\ Projects/git-personal/deorcost-rpg/
+    hash -d grav=~/Documents/Git\ Projects/git-personal/ws-seanmmcdaniel-grav/
+    hash -d metrics=~/Documents/Git\ Projects/git-personal/metrics/
 
-    # Git
+    # Git Work
     hash -d git=~/Documents/Git\ Projects/
-    hash -d pya=~/Documents/Git\ Projects/git-personal/py-analysis-sm/
+    hash -d pya=~/Documents/Git\ Projects/git-work/py-analysis-sm/
+    hash -d alex=~/Documents/Git\ Projects/git-work/alexanalysis/
 
-    # Projects
+    # Projects Dirs
     hash -d proj=~/Documents/Projects/
     hash -d dtra=~/Documents/Projects/DTRA\ \(2017-07\)/
     hash -d hen=~/Documents/Projects/AMON-HEN\ \(2017-12\)/
