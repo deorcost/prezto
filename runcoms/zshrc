@@ -71,13 +71,17 @@ bindkey '^_' undo
 # MITRE PROXY
 # -----------
 
-if [ "$HOST" =  mm241584-PC ]; then
+if [ "$HOST" =  MM241584-PC ]; then
     export http_proxy=http://gatekeeper-w.mitre.org:80/
-    export https_proxy=http://gatekeeper-w.mitre.org:80/
-    export no_proxy=localhost,127.0.0.1,.mitre.org
     export HTTP_PROXY=$http_proxy
+
+    export https_proxy=http://gatekeeper-w.mitre.org:80/
     export HTTPS_PROXY=$https_proxy
+
+    export no_proxy=localhost,127.0.0.1,.mitre.org
     export NO_PROXY=$no_proxy
+
+    export ALL_PROXY=$http_proxy:80
 fi
 
 # ALIASES
@@ -98,9 +102,12 @@ alias ll='ls -GFlh'
 
 # Directory aliases (e.g. 'cd docs = cd ~/Documents/')
  
-# NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder directory'
+# NOTE: zprezto module 'osx' defines 'cdf' as 'cd into the current Finder
+# directory'
+ 
 hash -d docs=~/Documents/
-if [[ "$HOST" = mm241584-PC ]]; then
+
+if [[ "$HOST" = MM241584-PC ]]; then
 
     # Git Personal
     hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
