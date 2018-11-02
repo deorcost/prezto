@@ -50,8 +50,6 @@ setopt PUSHD_SILENT         # No PUSHD error messages
 setopt RM_STAR_WAIT         # 10 sec wait for 'rm *' !!!
 setopt IGNORE_EOF           # Do not exit on end-of-file
 
-
-
 # KEYBINDINGS
 # --------
 
@@ -66,6 +64,17 @@ bindkey '^_' undo
 # Incremental search using "/" and "?"
 #bindkey -M vicmd "/" history-incremental-search-backward
 #bindkey -M vicmd "?" history-incremental-search-forward
+
+# VARIABLES
+# ---------
+
+if [ "$HOST" =  MM241584-PC ]; then
+    export CURL_CA_BUNDLE=~/.cert/MITRE-chain.pem
+    export SSL_CERT_FILE=~/.cert/MITRE-chain.pem
+fi
+
+
+fi
 
 
 # MITRE PROXY
