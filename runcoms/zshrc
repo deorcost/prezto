@@ -74,9 +74,6 @@ if [ "$HOST" =  MM241584-PC ]; then
 fi
 
 
-fi
-
-
 # MITRE PROXY
 # -----------
 
@@ -93,10 +90,12 @@ if [ "$HOST" =  MM241584-PC ]; then
     export ALL_PROXY=$http_proxy:80
 fi
 
+
 # ALIASES
 # -------
 
-# Command aliases (e.g. 'ls = ls -GpF')
+# Additional aliases have been defined in the prezto module (e.g. the Utility
+# module). See ~/.zprezto/modules/utility/README for details.
 
 # 'zprofile' sets a few defaults for 'ls' commands
 #   -C: Mult-column output (default for terminals; therefore not included)
