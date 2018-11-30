@@ -154,14 +154,24 @@ fi
 # (trying to prevent command pollution). See ~/.zprezto/modules/git/alias.zsh
 # for reference. Will add more as necessary.
 
+# Branch (b)
+alias gb='git branch'
+
+# Commit (c)
+alias gcm='git commit --message'    # git commit message
+alias gco='git checkout'
+
+# Fetch (f)
+alias gf='git fetch'
+alias gfm='git pull'                # Pull = fetch + merge
+
+# Index (i)
 alias gia='git add'                 # git index add
 
-alias gcm='git commit --message'    # git commit message
-
+# Push (p)
 alias gp='git push'
-alias gfm='git pull'                # Pull = fetch + merge
-alias gf='git fetch'
 
+# Working copy (w)
 alias gwd='git diff'                # git working-directory diff
 # git working-directory status
 alias gws='git status --ignore-submodules=${_git_status_ignore_submodules}' 
