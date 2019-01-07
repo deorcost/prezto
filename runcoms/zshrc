@@ -68,11 +68,12 @@ bindkey '^_' undo
 # VARIABLES
 # ---------
 
-if [ "$HOST" =  MM241584-PC ]; then
-    # Note: Setting the CURL_CA_BUNDLE variable prevents `conda` from working.
-    #export CURL_CA_BUNDLE=~/.cert/MITRE-chain.pem
-    export SSL_CERT_FILE=~/.cert/MITRE-chain.pem
-fi
+# Temp disabled -- 
+#if [ "$HOST" =  MM241584-PC ]; then
+#    # Note: Setting the CURL_CA_BUNDLE variable prevents `conda` from working.
+#    export CURL_CA_BUNDLE=~/.cert/MITRE-chain.pem
+#    export SSL_CERT_FILE=~/.cert/MITRE-chain.pem
+#fi
 
 
 # MITRE PROXY
