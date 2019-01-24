@@ -68,7 +68,8 @@ bindkey '^_' undo
 # VARIABLES
 # ---------
 
-# Temp disabled -- 
+# Certificate variables temporarily disabled. They were breaking 'conda'.
+# (e.g. `conda update --all`)
 #if [ "$HOST" =  MM241584-PC ]; then
 #    # Note: Setting the CURL_CA_BUNDLE variable prevents `conda` from working.
 #    export CURL_CA_BUNDLE=~/.cert/MITRE-chain.pem
@@ -120,10 +121,15 @@ hash -d docs=~/Documents/
 if [[ "$HOST" = MM241584-PC ]]; then
 
     # Git Personal
-    hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
     hash -d deorcost=~/Documents/Git\ Projects/git-personal/deorcost-rpg/
     hash -d grav=~/Documents/Git\ Projects/git-personal/ws-seanmmcdaniel-grav/
     hash -d metrics=~/Documents/Git\ Projects/git-personal/metrics/
+
+    hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
+    hash -d js=~/Documents/Git\ Projects/git-personal/notes/job-search/
+    hash -d py=~/Documents/Git\ Projects/git-personal/notes/python/
+    hash -d rr=~/Documents/Git\ Projects/git-personal/notes/r/
+    hash -d pd=~/Documents/Git\ Projects/git-personal/notes/personal-development/
 
     # Git Work
     hash -d git=~/Documents/Git\ Projects/
@@ -220,6 +226,8 @@ function md2docx {
 # Convert a Markdown (*.md) file to an HTML file using pandoc. Use a CSS style
 # sheet.
 #
+# Required packages (homebrew): pandoc, pandoc-citeproc
+#
 # Pandoc flags:
 #   -s: Standalone document with a proper header and footer. Required for
 #           proper HTML rendering.
@@ -235,7 +243,7 @@ function md2html {
 # Function 2: conversion (as above) + place file in html directory
 function md2html2 {
     echo "Pandoc: Creating 'html/${1:t:r}.html' from '${1:t}'"
-    pandoc -s --toc --katex --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
+    pandoc -s --toc --katex --highlight-style kate --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
 }
 
 # Update all homebrew (/usr/local) python packages
