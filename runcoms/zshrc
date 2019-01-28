@@ -127,9 +127,10 @@ if [[ "$HOST" = MM241584-PC ]]; then
 
     hash -d notes=~/Documents/Git\ Projects/git-personal/notes/
     hash -d js=~/Documents/Git\ Projects/git-personal/notes/job-search/
-    hash -d py=~/Documents/Git\ Projects/git-personal/notes/python/
-    hash -d rr=~/Documents/Git\ Projects/git-personal/notes/r/
     hash -d pd=~/Documents/Git\ Projects/git-personal/notes/personal-development/
+
+    hash -d py=~/Documents/Git\ Projects/git-personal/py-reference/
+    hash -d rr=~/Documents/Git\ Projects/git-personal/r-reference/
 
     # Git Work
     hash -d git=~/Documents/Git\ Projects/
@@ -243,7 +244,7 @@ function md2html {
 # Function 2: conversion (as above) + place file in html directory
 function md2html2 {
     echo "Pandoc: Creating 'html/${1:t:r}.html' from '${1:t}'"
-    pandoc -s --toc --katex --highlight-style kate --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
+    pandoc -s --toc --katex --highlight-style=kate --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
 }
 
 # Update all homebrew (/usr/local) python packages
