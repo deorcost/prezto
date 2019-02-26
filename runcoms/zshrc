@@ -135,15 +135,11 @@ if [[ "$HOST" = MM241584-PC ]]; then
     # Git Work
     hash -d git=~/Documents/Git\ Projects/
     hash -d pya=~/Documents/Git\ Projects/git-work/py-analysis-sm/
-    hash -d alex=~/Documents/Git\ Projects/git-work/alexanalysis/
+    hash -d hfc=~/Documents/Git\ Projects/git-work/hfc/
 
     # Projects Dirs
     hash -d proj=~/Documents/Projects/
-    hash -d dtra=~/Documents/Projects/DTRA\ \(2017-07\)/
-    hash -d hen=~/Documents/Projects/AMON-HEN\ \(2017-12\)/
-    hash -d polar=~/Documents/Projects/Polarization\ \(2018-05\)/
-    hash -d vta=~/Documents/Projects/HSARPA\ \(2018-05\)/
-    hash -d wiser=~/Documents/Projects/WISER\ \(2013-10\)/
+    hash -d forecast=~/Documents/Projects/Forecasting\ \(2019-02\)/
 
 fi
 
