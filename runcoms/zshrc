@@ -206,11 +206,34 @@ alias bstatus='brew services list'
 #   - e: the suffix (file extension)
 
 
-# Convert a Markdown (*.md) file to a Microsoft Word (*.docx) file using pandoc
+# PANDOC FUNCTIONS
+# 
+#   1. md2docx:  Convert Markdown -> Word
+#   2. md2html:  Convert Markdown -> HTML
+#   3. md2html2: Convert Markdown -> HTML. HTML files go in seperate folder.
+#   3. md2pdf:   Convert Markdown -> PDF
+#
+# The following PANDOC flags are in the various functions
+#
+#   - s / --standalone
+#       Produce output with an appropriate header and footer
+#   --toc
+#       Generate a table of contents
+#   --css "path/to/stylesheet.css"
+#       Use CSS stylesheet 'stylesheet.css' to format HTML documents
+#   --katex
+#       Fast math typesetting engine for HTML (see https://github.com/Khan/KaTeX)
+#   --filter pandoc-citeproc
+#       Add citation and bibliography support. Requires installation of
+#       'pandoc-citeproc' (homebrew)
+#   --filter pandoc-crossref
+#       Add figure, equation, and table cross-reference functionality. Requires
+#       installation of 'pandoc-crossref' (homebrew)
+#   --highlight-style kate
+#       Use the HTML code formatting highlight style 'kate'
 
-# Pandoc flags:
-#   - s / --standalone  :   Produce output with an appropriate header and footer.
- 
+
+# Markdown -> Word
 function md2docx {
     if test ${1:e}=="md"; then
         echo "Executing: 'pandoc -s ${1:t} -o ${1:t:r}.docx'"
@@ -220,28 +243,41 @@ function md2docx {
     fi
 }
 
-# Convert a Markdown (*.md) file to an HTML file using pandoc. Use a CSS style
-# sheet.
-#
-# Required packages (homebrew): pandoc, pandoc-citeproc
-#
-# Pandoc flags:
-#   -s: Standalone document with a proper header and footer. Required for
-#           proper HTML rendering.
-#   --css "path/to/stylesheet.css": Reference style sheet
-#   --katex: Math typesetting (see https://github.com/Khan/KaTeX)
-
-# Function 1: simple conversion with style sheet and table of contents
+# Markdown -> HTML
 function md2html {
     echo "Pandoc: Creating '${1:t:r}.html' from '${1:t}'"
-    pandoc -s --toc --katex --css ~/.css/pandoc.css -o ${1:r}.html ${1} 
+    pandoc -s --toc --katex \
+        --filter pandoc-crossref \
+        --filter pandoc-citeproc \
+        --highlight-style kate \
+        --css ~/.css/pandoc.css \
+        -o ${1:r}.html ${1} 
 }
 
-# Function 2: conversion (as above) + place file in html directory
+# Markdown -> HTML
+# Place the output HTML document in a seperate `html/` folder. This folder is
+# assumed to exist.
 function md2html2 {
     echo "Pandoc: Creating 'html/${1:t:r}.html' from '${1:t}'"
-    pandoc -s --toc --katex --highlight-style=kate --css ~/.css/pandoc.css -o html/${1:r}.html ${1} 
+    pandoc -s --toc --katex \
+        --filter pandoc-crossref \
+        --filter pandoc-citeproc \
+        --highlight-style kate \
+        --css ~/.css/pandoc.css \
+        -o html/${1:r}.html ${1} 
 }
+
+# Markdown -> PDF
+function md2pdf {
+    echo "Pandoc: Creating '${1:t:r}.pdf' from '${1:t}'"
+    pandoc ~/.pandoc/templates/latex_template.yaml \
+        --filter pandoc-crossref \
+        --filter pandoc-citeproc \
+        -o ${1:r}.pdf ${1} 
+}
+
+
+# PYTHON FUNCTIONS
 
 # Update all homebrew (/usr/local) python packages
 function p3update {
@@ -249,4 +285,20 @@ function p3update {
     pip3 freeze - local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
     echo "Process complete"
 }
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/smcdaniel/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/smcdaniel/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/smcdaniel/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/smcdaniel/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
