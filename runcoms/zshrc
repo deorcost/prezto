@@ -140,6 +140,7 @@ if [[ "$HOST" = MM241584-PC ]]; then
     # Projects Dirs
     hash -d proj=~/Documents/Projects/
     hash -d forecast=~/Documents/Projects/Forecasting\ \(2019-02\)/
+    hash -d vba=~/Documents/Projects/VBA\ \(2019-03\)/
 
 fi
 
@@ -286,7 +287,7 @@ function p3update {
     echo "Process complete"
 }
 
-
+if [[ "$HOST" = MM241584-PC ]]; then
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/smcdaniel/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -301,4 +302,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+fi
