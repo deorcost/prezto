@@ -287,6 +287,13 @@ function p3update {
     echo "Process complete"
 }
 
+# Set the Anaconda environment via a function
+# #
+# This is done manually instead of automatically so that the conda installation
+# binaries don't conflict with installation of other applications (e.g. certain
+# R packages).
+function setcondaenv {
+
 if [[ "$HOST" = MM241584-PC ]]; then
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -303,3 +310,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 fi
+}
