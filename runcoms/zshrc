@@ -133,9 +133,9 @@ if [[ "$HOST" = MM241584-PC ]]; then
     hash -d rr=~/Documents/Git\ Projects/git-personal/r-reference/
 
     # Git Work
-    hash -d git=~/Documents/Git\ Projects/
-    hash -d pya=~/Documents/Git\ Projects/git-work/py-analysis-sm/
+    hash -d gwork=~/Documents/Git\ Projects/git-work/
     hash -d hfc=~/Documents/Git\ Projects/git-work/hfc/
+    hash -d hiss=~/Documents/Git\ Projects/git-work/hfc-issue-tracker/
 
     # Projects Dirs
     hash -d proj=~/Documents/Projects/
