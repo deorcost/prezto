@@ -294,6 +294,10 @@ function p3update {
 # R packages).
 function setcondaenv {
 
+if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
+export PATH="/Users/seanmcdaniel/anaconda/bin:$PATH"
+fi
+
 if [[ "$HOST" = MM241584-PC ]]; then
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
