@@ -151,10 +151,17 @@ fi
 
 # Mac Desktop
 if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
-    hash -d notes=~/Documents/github-repos/personal/notes/
-    hash -d grav=~/Documents/github-repos/personal/ws-seanmmcdaniel-grav/pages/
     hash -d deorcost=~/Documents/github-repos/personal/deorcost-rpg/
+    hash -d grav=~/Documents/github-repos/personal/ws-seanmmcdaniel-grav/pages/
     hash -d metrics=~/Documents/github-repos/personal/metrics/
+
+    hash -d notes=~/Documents/github-repos/personal/notes/
+    hash -d js=~/Documents/github-repos/personal/notes/job-search/
+    hash -d pd=~/Documents/github-repos/personal/notes/personal-development/
+    hash -d cv=~/Documents/github-repos/personal/notes/computerverse/
+
+    hash -d py=~/Documents/github-repos/personal/py-reference/
+    hash -d rr=~/Documents/github-repos/personal/r-reference/
 fi
 
 
