@@ -182,6 +182,7 @@ alias gco='git checkout'
 # Fetch (f)
 alias gf='git fetch'
 alias gfm='git pull'                # Pull = fetch + merge
+alias gfr='git pull --rebase'
 
 # Index (i)
 alias gia='git add'                 # git index add
@@ -194,6 +195,10 @@ alias gwd='git diff'                # git working-directory diff
 # git working-directory status
 alias gws='git status --ignore-submodules=${_git_status_ignore_submodules}' 
 
+# Git stash (s)
+alias gs='git stash'
+alias gsl='git stash list'
+alias gsp='git stash pop'
 
 # Misc. aliases
  
