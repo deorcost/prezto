@@ -68,18 +68,9 @@ bindkey '^_' undo
 # VARIABLES
 # ---------
 
-# Certificate variables temporarily disabled. They were breaking 'conda'.
-# (e.g. `conda update --all`)
-#if [ "$HOST" =  MM241584-PC ]; then
-#    export PATH="/usr/local/opt/libxml2/bin:$PATH"
-#    # Help compilers find libxml2
-#    export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-#    export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-#    export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
-#    # Note: Setting the CURL_CA_BUNDLE variable prevents `conda` from working.
-#    export CURL_CA_BUNDLE=~/.cert/MITRE-chain.pem
-#    export SSL_CERT_FILE=~/.cert/MITRE-chain.pem
-#fi
+# Neovim true color and cursor shape support
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 
 # MITRE PROXY
@@ -285,13 +276,13 @@ function md2html2 {
         -o html/${1:r}.html ${1} 
 }
 
-# Markdown -> PDF
-function md2pdf {
-    echo "Pandoc: Creating '${1:t:r}.pdf' from '${1:t}'"
-    pandoc ~/.pandoc/templates/latex_template.yaml \
+# Markdown (Common Mark) -> Markdown (PHP Extra)
+function md2md {
+    echo "Pandoc: Creating '${1:t:r}.md' from '${1:t}'"
+    pandoc --atx-headers \
         --filter pandoc-crossref \
-        --filter pandoc-citeproc \
-        -o ${1:r}.pdf ${1} 
+        --from markdown --to markdown_phpextra-link_attributes \
+        -o ${1:r}_phpextra.md ${1} 
 }
 
 
