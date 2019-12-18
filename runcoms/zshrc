@@ -130,8 +130,8 @@ if [[ "$HOST" = MM241584-PC ]]; then
     hash -d rr=~/Documents/Git\ Projects/git-personal/r-reference/
 
     # Git Work
-    hash -d gwork=~/Documents/Git\ Projects/git-work/
     hash -d hfc=~/Documents/Git\ Projects/git-work/hfc/
+    hash -d appeals=~/Documents/Git\ Projects/git-work/vba_appeals_task/
 
     # Projects Dirs
     hash -d proj=~/Documents/Projects/
@@ -281,6 +281,7 @@ function md2md {
     echo "Pandoc: Creating '${1:t:r}.md' from '${1:t}'"
     pandoc --atx-headers \
         --filter pandoc-crossref \
+        --filter pandoc-citeproc \
         --from markdown --to markdown_phpextra-link_attributes \
         -o ${1:r}_phpextra.md ${1} 
 }
