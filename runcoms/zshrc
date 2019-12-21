@@ -303,24 +303,21 @@ function p3update {
 # R packages).
 function setcondaenv {
 
-if [[ "$HOST" = SoniaMahwarsMBP.home ]]; then
-export PATH="/Users/seanmcdaniel/anaconda/bin:$PATH"
-fi
-
-if [[ "$HOST" = MM241584-PC ]]; then
-# >>> conda initialize >>>
+# added by Anaconda3 2019.10 installer
+# >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/smcdaniel/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/smcdaniel/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    \eval "$__conda_setup"
 else
-    if [ -f "/Users/smcdaniel/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/smcdaniel/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/smcdaniel/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+# . "/Users/smcdaniel/opt/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+        CONDA_CHANGEPS1=false conda activate base
     else
-        export PATH="/Users/smcdaniel/anaconda3/bin:$PATH"
+        \export PATH="/Users/smcdaniel/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
-fi
+# <<< conda init <<<
+
 }
