@@ -76,18 +76,18 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 # MITRE PROXY
 # -----------
 
-if [ "$HOST" =  MM241584-PC ]; then
-    export http_proxy=http://gatekeeper-w.mitre.org:80/
-    export HTTP_PROXY=$http_proxy
-
-    export https_proxy=http://gatekeeper-w.mitre.org:80/
-    export HTTPS_PROXY=$https_proxy
-
-    export no_proxy=localhost,127.0.0.1,.mitre.org
-    export NO_PROXY=$no_proxy
-
-    export ALL_PROXY=$http_proxy:80
-fi
+#if [ "$HOST" =  MM241584-PC ]; then
+#    export http_proxy=http://gatekeeper-w.mitre.org:80/
+#    export HTTP_PROXY=$http_proxy
+#
+#    export https_proxy=http://gatekeeper-w.mitre.org:80/
+#    export HTTPS_PROXY=$https_proxy
+#
+#    export no_proxy=localhost,127.0.0.1,.mitre.org
+#    export NO_PROXY=$no_proxy
+#
+#    export ALL_PROXY=$http_proxy:80
+#fi
 
 
 # ALIASES
