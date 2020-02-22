@@ -311,7 +311,6 @@ if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
     if [ -f "/Users/smcdaniel/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-# . "/Users/smcdaniel/opt/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
         CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="/Users/smcdaniel/opt/anaconda3/bin:$PATH"
