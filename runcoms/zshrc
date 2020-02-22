@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -25,9 +32,7 @@ fi
 # Don't add certain commands to history
 HISTORY_IGNORE="(ls|ls -a|ll|ll -a|l|l -a|pwd|exit|clear|cd|cd ..|cd ../..)"
 
-# Point 'mvim' to the current Homebrew vim
-# export VIM_APP_DIR="usr/local/Cellar/macvim/HEAD-ed3fd67/" 
-
+export SSL_CERT_FILE=~/.cert/MITRE-chain.txt
 
 # SETOPTS
 # -------
@@ -71,23 +76,6 @@ bindkey '^_' undo
 # Neovim true color and cursor shape support
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-
-# MITRE PROXY
-# -----------
-
-if [ "$HOST" =  MM241584-PC ]; then
-    export http_proxy=http://gatekeeper-w.mitre.org:80/
-    export HTTP_PROXY=$http_proxy
-
-    export https_proxy=http://gatekeeper-w.mitre.org:80/
-    export HTTPS_PROXY=$https_proxy
-
-    export no_proxy=localhost,127.0.0.1,.mitre.org
-    export NO_PROXY=$no_proxy
-
-    export ALL_PROXY=$http_proxy:80
-fi
 
 
 # ALIASES
@@ -313,10 +301,13 @@ else
     if [ -f "/Users/smcdaniel/opt/anaconda3/etc/profile.d/conda.sh" ]; then
         CONDA_CHANGEPS1=false conda activate base
     else
-        \export PATH="/Users/smcdaniel/opt/anaconda3/bin:$PATH"
+        export PATH="/Users/smcdaniel/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda init <<<
 
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
